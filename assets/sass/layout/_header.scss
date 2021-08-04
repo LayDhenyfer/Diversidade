@@ -32,6 +32,9 @@
     a {
       img {
         width: 30%;
+        @include xs {
+          width: 40%;
+        }
       }
     }
   }
@@ -43,6 +46,7 @@
     backface-visibility: hidden;
     padding-top: 6rem;
     transition: all 0.6s ease-out;
+    width: 100%;
     @media only screen and (min-width:768px) and (max-width:1024px) {
       align-items: unset;
     }
@@ -148,6 +152,12 @@
     visibility: hidden;
     z-index: 6;
 
+    @include xs {
+      top: 60%;
+      transform: translate(-30%, 7%);
+      width: 150px;
+    }
+
     &-secondary {
       display: flex;
       top: 75%;
@@ -163,6 +173,11 @@
         opacity: 1;
         visibility: visible;
       }
+      @include xs {
+        transform: translateX(-65%);
+        width: 140px;
+        top: 99%;
+      }
     }
 
     span {
@@ -177,6 +192,9 @@
         &::after {
           bottom: -.5rem;
           background-color: #fff;
+        }
+        @include xs {
+          font-size: 1.6rem;
         }
       }
     }
