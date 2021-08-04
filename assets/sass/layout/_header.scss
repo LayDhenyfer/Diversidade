@@ -1,0 +1,232 @@
+.header {
+  background: #fff;
+
+  &__container-superior {
+    background-color: #0c4b88;
+    padding: .5% 0;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  &__menu-superior {
+    display: flex;
+    justify-content: flex-end;
+
+    & a {
+      font-size: 1.5rem;
+      color: #fff;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  &__logo {
+    font-size: 0;
+
+    a {
+      img {
+        width: 30%;
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    position: relative;
+    align-items: center;
+    backface-visibility: hidden;
+    padding-top: 6rem;
+    transition: all 0.6s ease-out;
+    @media only screen and (min-width:768px) and (max-width:1024px) {
+      align-items: unset;
+    }
+
+    a {
+      font-size: 2rem;
+      color: #B4B4B4;
+      line-height: 2rem;
+      font-weight: 400;
+      position: relative;
+      transition: .3s ease;
+
+      &:not(:last-child) {
+        margin-right: 4rem;
+
+        @include xs {
+          margin-right: 0;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -1.8rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #cccc;
+        transition: 0.4s ease-out;
+
+        @include xs {
+          bottom: -1rem;
+        }
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      @include xs {
+        padding-top: 2rem;
+      }
+    }
+
+    .header__submenu a {
+      margin: .6rem 0;
+    }
+
+    @include xs {
+      transition: all 0.6s ease-out;
+      height: 0;
+
+      a {
+        font-size: 0;
+      }
+    }
+
+    &.active {
+      transition: all 0.2s;
+
+      @include xs {
+        width: 100%;
+        position: relative;
+        left: -80px;
+        z-index: 7;
+        flex-direction: column;
+        background: #fff;
+        height: 36vh;
+
+        a {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  &__menu-oculto {
+    @media only screen and (min-width:768px) and (max-width:1024px) {
+      margin-right: 3rem;
+    }
+    @include xs {
+      padding-top: 2rem;
+    }
+
+    &:hover {
+      .header__submenu {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__submenu {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    transform: translate(-15%, 7%);
+    background-color: #0c4b88;
+    padding: .8rem 2.5rem;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 6;
+
+    &-secondary {
+      display: flex;
+      top: 75%;
+      left: 0;
+      transform: translateX(98%);
+      position: absolute;
+      background-color: #0c4b88;
+      padding: .8rem 2.5rem;
+      opacity: 0;
+      visibility: hidden;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    span {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      a {
+        font-size: 1.8rem;
+        color: #fff;
+
+        &::after {
+          bottom: -.5rem;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.hamburguer {
+  @include xs {
+    outline: none;
+    position: absolute;
+    top: 2%;
+    right: 7%;
+    width: 3rem;
+    height: 2px;
+    background-color: #333;
+    display: inline-block;
+    z-index: 8;
+
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: #333;
+      display: inline-block;
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+
+    &::after {
+      top: 0.8rem;
+    }
+
+    &.active {
+      background-color: transparent;
+
+      &::before {
+        top: 0;
+        transform: rotate(135deg);
+      }
+
+      &::after {
+        top: 0;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}

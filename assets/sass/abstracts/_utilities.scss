@@ -1,0 +1,45 @@
+$screen-mobile: 767px;
+$screen-tablet: 768px;
+$screen-tabLand: 1024px;
+$screen-tabPort: 1025px;
+$screen-desktop: 1300px;
+// (767px-)
+@mixin xs {
+    @media (max-width: #{$screen-mobile}) {
+        @content;
+    }
+}
+
+// (768px+)
+@mixin sm {
+    @media (max-width: #{$screen-tablet}) {
+        @content;
+    }
+}
+
+// (1024px+)
+@mixin md {
+    @media (min-width: #{$screen-tabLand}) and (max-width: #{$screen-tabPort}) {
+        @content;
+    }
+}
+
+// (1300px+)
+@mixin lg {
+    @media (min-width: #{$screen-desktop}) {
+        @content;
+    }
+}
+
+// Free
+@mixin min($screen) {
+    @media (min-width: $screen+"px") {
+        @content;
+    }
+}
+
+@mixin max($screen) {
+    @media (max-width: $screen+"px") {
+        @content;
+    }
+}
