@@ -144,7 +144,6 @@ a {
   backface-visibility: hidden;
   padding-top: 6rem;
   transition: all 0.6s ease-out;
-  width: 100%;
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .header__menu {
@@ -198,6 +197,7 @@ a {
   .header__menu {
     transition: all 0.6s ease-out;
     height: 0;
+    width: 100%;
   }
   .header__menu a {
     font-size: 0;
