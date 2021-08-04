@@ -46,7 +46,6 @@
     backface-visibility: hidden;
     padding-top: 6rem;
     transition: all 0.6s ease-out;
-    width: 100%;
     @media only screen and (min-width:768px) and (max-width:1024px) {
       align-items: unset;
     }
@@ -99,7 +98,7 @@
     @include xs {
       transition: all 0.6s ease-out;
       height: 0;
-
+      width: 100%;
       a {
         font-size: 0;
       }
